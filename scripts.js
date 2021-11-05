@@ -9,6 +9,7 @@ function resetGame(){
     document.getElementById("PaperPlayed").disabled = false;
     document.getElementById("ScissorPlayed").disabled = false;
     document.getElementById("GameOverMessage").innerHTML = ""
+    document.getElementById("info").innerHTML = "";
     currentRound = 0;
     wins = 0;
     losts = 0;
@@ -66,17 +67,6 @@ function playGame(playerSelection){
     }
 }
 
-function playRock(){
-    playGame("Rock");
-}
-
-function playPaper(){
-    playGame("Paper")
-}
-
-function playScissor(){
-    playGame("Scissor");
-}
 
 function createEventListener() {
     const RockButton = document.getElementById("RockPlayed");
@@ -85,15 +75,15 @@ function createEventListener() {
     const ResetButton = document.getElementById("ResetButton");
 
     if (RockButton.addEventListener){
-        RockButton.addEventListener("click", playRock, false);
+        RockButton.addEventListener("click", () => playGame("Rock"));
     }
 
     if (PaperButton.addEventListener){
-        PaperButton.addEventListener("click", playPaper, false);
+        PaperButton.addEventListener("click", () => playGame("Paper"));
     }
 
     if (ScissorButton.addEventListener){
-        ScissorButton.addEventListener("click", playScissor,false);
+        ScissorButton.addEventListener("click", () => playGame("Scissors"));
     }
 
     if (ResetButton.addEventListener){
